@@ -23,10 +23,45 @@ values = {
 }
 company = Company.new(values)
 company.save
+puts "There are #{Company.all.count} companies"
 
+values = { 
+    name: "Amazon", 
+    url: "https://amazon.com", 
+    city: "Seattle", 
+    state: "WA"
+}
+company = Company.new(values)
+company.save
+puts "There are #{Company.all.count} companies"
+
+#other way to add data, usefull to change a specific value
+company = Company.new
+# company.write_attribute(:name, "Tesla")
+company.name = "Tesla"
+# company.write_attribute(:url, "https://tesla.com")
+company.url = "https://tesla.com"
+# company.write_attribute(:city, "Palo Alto")
+company.city = "Palo Alto"
+# company.write_attribute(:state, "CA")
+company.state = "CA"
+company.save
 puts "There are #{Company.all.count} companies"
 
 # 3. query companies table
+puts "Consulta 1:"
+puts Company.all.inspect
+
+puts "Consulta 2:"
+companies = Company.where({ state: "CA" })
+puts companies.inspect
+
+#para ver el log de lo que está realmente consultando a la base de datos
+#cat log/development.log
+
+apple = Company.where({ state: "CA", name: "Apple" })[0]
+puts "Consulta 3:"
+puts apple.inspect
 
 # 4. read column values from row
 
