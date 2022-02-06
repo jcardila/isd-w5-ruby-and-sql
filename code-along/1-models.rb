@@ -64,5 +64,13 @@ puts "Consulta 3:"
 puts apple.inspect
 
 # 4. read column values from row
+puts "Consulta 4:"
+#puts "#{apple.read_attribute(:name)} has a website: #{apple.read_attribute(:url)}"
+puts "#{apple.name} has a website: #{apple.url}"
 
 # 5. update attribute value
+#apple.write_attribute(:slogan, "Think Different.")
+apple.slogan = "Think Different."
+apple.save
+puts "Consulta 5:"
+puts apple.inspect
