@@ -74,3 +74,8 @@ apple.slogan = "Think Different."
 apple.save
 puts "Consulta 5:"
 puts apple.inspect
+
+teslet = Company.new({ name: "Tesler"})
+teslet.save
+
+tesler.destroy
